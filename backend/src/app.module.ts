@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { User } from './user.entity'; // We will create this next
+import { PrometheusModule } from '@willsoto/nestjs-prometheus';
 
 @Module({
   imports: [
@@ -21,6 +22,8 @@ import { User } from './user.entity'; // We will create this next
     }),
     // Inject the User entity wrapper into our current module scope
     TypeOrmModule.forFeature([User]),
+  
+    PrometheusModule.register(),
   ],
   controllers: [AppController, AuthController],
   providers: [AppService, AuthService],

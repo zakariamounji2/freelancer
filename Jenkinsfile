@@ -9,7 +9,7 @@ pipeline {
         REGISTRY_USER  = 'zakariamounji2'
         FRONTEND_IMAGE = 'nextjs-frontend'
         BACKEND_IMAGE  = 'springboot-backend'
-        DB_IMAGE       = 'mysql-db' // 1. Added DB Image variable
+        DB_IMAGE       = 'mysql-db'
         IMAGE_TAG      = 12
         DOCKER_API_VERSION = '1.40'
     }
@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Build DB Image') { // 2. New stage for your custom DB
+        stage('Build DB Image') {
             steps {
                 script {
                     sh "docker build -t ${REGISTRY_USER}/${DB_IMAGE}:${IMAGE_TAG} -t ${REGISTRY_USER}/${DB_IMAGE}:latest ./db"

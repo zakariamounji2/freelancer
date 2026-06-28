@@ -11,6 +11,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.listen(8000); // Running on port 8000 as configured in docker-compose
+  await app.listen(8000, '0.0.0.0'); // Running on port 8000 as configured in docker-compose
 }
 bootstrap();
