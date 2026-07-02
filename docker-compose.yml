@@ -41,5 +41,5 @@ volumes:
 
 networks:
   mynetwork:
-    driver: bridge
+    external: true
   
